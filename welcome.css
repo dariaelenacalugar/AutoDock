@@ -1,0 +1,244 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: Lao Muang Khong;
+}
+
+body { 
+    display: flex; 
+    min-height: 100vh; 
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container { 
+    display: flex; 
+    width: 100%; 
+    min-height: 100vh; 
+    background-color: #fff; 
+}
+
+.left-panel { 
+    flex: 0 0 30%; 
+    background-color: #9C6D9D; 
+    padding: 120px 8% 40px; 
+    color: #fff; 
+    display: flex; 
+    flex-direction: column; 
+   
+}
+
+.logo { 
+    margin-bottom: 25px; 
+    margin-top: -50px;
+    display: flex; 
+    align-items: center;
+}
+
+.logo-img {
+    max-width: 480px; 
+    height: 309px; 
+    left:26px;
+}
+
+.tagline { 
+    font-size: 25px; 
+    font-family: Lao Muang Don;
+    font-style: normal;
+    margin-bottom: 40px; 
+    margin-left: 50px;
+    line-height: 100%; 
+    font-weight: 400; 
+    vertical-align: middle;
+}
+
+.divider { 
+    border: 0; 
+    height: 1px; 
+    background-color: #F2F2F7;
+    margin-bottom: 45px; 
+    width: 100%; 
+    opacity: 80%;
+}
+
+.features { 
+    list-style: none; 
+    margin-left: 30px;
+}
+
+.features li { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    font-size: 25px; 
+    font-weight: 300; 
+    line-height: 1.4; 
+}
+
+.features i { 
+    font-size: 32px; 
+    margin-right: 25px; 
+    width: 35px; 
+    text-align: center; 
+}
+
+.list-icon {
+    width: 35px;
+    margin-right: 20px;
+}
+
+.right-panel { 
+    flex: 1; 
+    padding: 120px 8% 50px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+   
+}
+
+h1 { 
+    color: #9C6D9D; 
+    font-size: 128px; 
+    font-weight: 400; 
+    margin-bottom: 10px; 
+    margin-top: 50px;
+    letter-spacing: 1px;
+}
+
+.subtitle { 
+    color: #444; 
+    font-size: 25px; 
+    margin-bottom: 50px; 
+}
+
+.role-selector { 
+    display: flex; 
+    gap: 30px; 
+    margin-bottom: 40px; 
+}
+
+.role-btn { 
+    width: 110px; 
+    height: 85px; 
+    border: 1px solid #aaa; 
+    border-radius: 6px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    color: #9C6D9D; 
+    font-size: 17px; 
+    font-weight: 500;
+    cursor: pointer; 
+    transition: all 0.2s ease;
+}
+
+.role-btn i { 
+    font-size: 28px; 
+    margin-bottom: 8px; 
+}
+
+.role-btn:hover {
+    background-color: #8c678f; 
+    border-color: #8c678f; 
+    color: #ffffff;    
+}
+
+
+.login-form { 
+    width: 100%; 
+    max-width: 420px; 
+}
+
+.input-group { 
+    margin-bottom: 25px; 
+}
+
+.input-group label { 
+    display: block; 
+    margin-bottom: 10px; 
+    color: #333; 
+    font-size: 25px; 
+}
+
+.input-group input { 
+    width: 100%; 
+    padding: 14px 15px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    outline: none; 
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus { 
+    border-color: #8c678f; 
+}
+
+.form-options { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 25px; 
+    font-size: 22px; 
+    color: #9C6D9D; 
+}
+
+.remember-me { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+    cursor: pointer; 
+}
+
+.remember-me input { 
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: #9C6D9D;
+}
+
+.forgot-pwd { 
+    color: #9C6D9D; 
+    text-decoration: none; 
+}
+
+.forgot-pwd:hover {
+    text-decoration: underline;
+}
+
+.sign-in-btn { 
+    width: 100%; 
+    padding: 16px; 
+    margin-top: 10px;
+    font-size: 22px; 
+    color: #a0a0a0; 
+    background-color: #fff; 
+    border: 2px solid #ccc; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+
+.sign-in-btn:hover { 
+     background-color: #8c678f; 
+    border-color: #8c678f; 
+    color: #ffffff;    
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+        flex: none;
+        width: 100%;
+    }
+    .left-panel {
+        padding: 50px 8%;
+    }
+    .right-panel {
+        padding: 60px 8%;
+    }
+}
