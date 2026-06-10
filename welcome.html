@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="eng">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="welcome.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
     <title>AutoDock</title>
 
 
@@ -14,15 +15,29 @@
     <div class="container">
         <div class="left-panel">
             <div class="logo">
-                <img src="logo.png" alt="Autodock Logo" class="logo-img">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Autodock Logo" class="logo-img">
+                </a>
             </div>
             <div class="tagline">Smart, efficient and centralized<br>fleet management</div>
             <hr class="divider">
             <ul class="features">
-               <li><img src="icon1.svg" alt="icon" class="list-icon"> <div>Real-time dashboard and<br>statistics</div></li>
-               <li><i class="far fa-clock"></i> <div>Alerts for expiring<br>documents</div></li>
-               <li><i class="far fa-calendar-alt"></i> <div>Integrated service<br>calendar</div></li>
-               <li><i class="fas fa-shield-alt"></i> <div>Insurance and vignette<br>management</div></li>
+                <li>
+                    <span class="material-symbols-outlined list-icon">bar_chart</span>
+                    <div>Real-time dashboard and<br>statistics</div>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined list-icon">notifications_active</span>
+                    <div>Alerts for expiring<br>documents</div>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined list-icon">calendar_month</span>
+                    <div>Integrated service<br>calendar</div>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined list-icon">shield</span>
+                    <div>Insurance and vignette<br>management</div>
+                </li>
             </ul>
         </div>
 
@@ -31,39 +46,88 @@
             <div class="subtitle">Sign in to your account</div>
 
             <div class="role-selector">
-                <div class="role-btn">
-                    <i class="fas fa-user-shield"></i>
-                Manager
-                </div>
-                <div class="role-btn">
-                    <i class="far fa-user"></i>
-                User
-                </div>
-            </div>
-            
 
-           <form class="login-form">
-            <div class="input-group">
-                <label>Username or Email:</label>
-                <input type="text">
+                <div id="btn-manager" class="role-btn">
+                    <span>Manager</span>
+                </div>
+
+                <div id="btn-user" class="role-btn">
+                    <span>User</span>
+                </div>
+
             </div>
-            <div class="input-group">
-                <label>Password:</label>
-                <input type="password">
-            </div>
-            
-            <div class="form-options">
-                <label class="remember-me">
-                    <input type="checkbox"> Remember me
-                </label>
-                <a href="#" class="forgot-pwd">Forgot password?</a>
-            </div>
-            
-            <button type="button" class="sign-in-btn">Sign in</button>
-        </form>
+
+
+            <form class="login-form" action="login.php" method="POST">
+                <div class="input-group">
+                    <label>Username or Email:</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="input-group">
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-pwd">Forgot password?</a>
+                </div>
+
+               <button type="submit" class="sign-in-btn" id="btnSignIn">Sign in</button>
+
+                <button type="button" id="btn-create-acc" class="create-acc-btn">Create a new account</button>
+            </form>
 
         </div>
     </div>
+    <script>
+        const btnManager = document.getElementById('btn-manager');
+        const btnUser = document.getElementById('btn-user');
+        const btnCreateAcc = document.getElementById('btn-create-acc');
+        const btnSignIn = document.getElementById('btnSignIn'); 
+
+       
+        if (btnManager && btnUser) {
+            btnManager.addEventListener('click', function() {
+                btnManager.classList.add('active');
+                btnUser.classList.remove('active');
+            });
+
+            btnUser.addEventListener('click', function() {
+                btnUser.classList.add('active');
+                btnManager.classList.remove('active');
+            });
+        }
+
+        
+        if (btnCreateAcc) {
+            btnCreateAcc.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                
+                if (btnManager.classList.contains('active')) {
+                    window.location.href = 'create-acc-manager.html';
+                } else if (btnUser.classList.contains('active')) {
+                    window.location.href = 'create-acc-user.html';
+                }
+            });
+        }
+
      
+        /*if (btnSignIn) {
+            btnSignIn.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                
+                if (btnManager.classList.contains('active')) {
+                    window.location.href = 'dashboard-manager.html';
+                } else if (btnUser.classList.contains('active')) {
+                    window.location.href = 'cars-u.html';
+                }
+            });
+        }*/
+    </script>
 </body>
+</body>
+
 </html>

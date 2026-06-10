@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Autodock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="manager.css">
+</head>
+
+<body>
+
+    <nav class="dash-navbar">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Autodock Logo" class="dash-logo">
+        </a>
+        <ul class="dash-nav-links">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="cars-m.html">Cars</a></li>
+            <li><a href="drivers.html">Drivers</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="documents-m.html">Documents</a></li>
+        </ul>
+
+        <div class="profile-dropdown-container">
+
+            <div class="profile-trigger" id="profileTrigger">
+                <div class="profile-avatar">AP</div>
+                <div class="profile-info">
+                    <span class="profile-name">Adrian Popescu</span>
+                    <span class="profile-role">Manager</span>
+                </div>
+                <span class="material-symbols-outlined arrow-icon">expand_more</span>
+            </div>
+
+            <div class="profile-menu" id="profileMenu">
+                <div class="profile-menu-header">
+                    <strong>Manager Central</strong>
+                    <span>manager@autodock.ro</span>
+                </div>
+
+                <hr class="dropdown-divider">
+
+                <a href="#" class="profile-menu-item">
+                    <span class="material-symbols-outlined">account_circle</span> My Profile
+                </a>
+                <a href="#" class="profile-menu-item">
+                    <span class="material-symbols-outlined">settings</span> Account Settings
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a href="index.html" class="profile-menu-item sign-out">
+                    <span class="material-symbols-outlined">logout</span> Sign Out
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <header class="dash-header">
+            <h1>Welcome back, manager!</h1>
+            <div class="header-actions">
+                <input type="text" placeholder="Search vehicle, driver or docs..." class="search-bar">
+            </div>
+        </header>
+
+        <section class="kpi-row">
+            <div class="kpi-card">
+                <h3>TOTAL FLEET</h3>
+                <p class="kpi-number black">48</p>
+            </div>
+            <div class="kpi-card">
+                <h3>ACTIVE VEHICLES</h3>
+                <p class="kpi-number green">39</p>
+            </div>
+            <div class="kpi-card">
+                <h3>IN MAINTENANCE</h3>
+                <p class="kpi-number yellow">7</p>
+            </div>
+            <div class="kpi-card">
+                <h3>CRITICAL ALERTS</h3>
+                <p class="kpi-number red">2</p>
+            </div>
+        </section>
+
+        <section class="main-grid">
+
+            <div class="grid-left">
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Document Expiration Alerts</h2>
+                        <a href="documents-m.html" class="link-view-all">View all →</a>
+                    </div>
+
+                    <div class="alert-box alert-red">
+                        <div class="alert-info">
+                            <span class="material-symbols-outlined alert-icon-red">warning</span>
+                            <div>
+                                <h4>Insurance Expired - SB 42 BDP</h4>
+                                <p>Expired 2 days ago</p>
+                            </div>
+                        </div>
+                        <button class="btn-alert btn-red">Renew now</button>
+                    </div>
+
+                    <div class="alert-box alert-yellow">
+                        <div class="alert-info">
+                            <span class="material-symbols-outlined alert-icon-yellow">assignment</span>
+                            <div>
+                                <h4>Technical Inspection - SB 18 AMX</h4>
+                                <p>Expires in 5 days (May 30, 2026)</p>
+                            </div>
+                        </div>
+                        <button class="btn-alert btn-yellow">Schedule</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>Live Fleet Status</h2>
+                        <a href="cars-m.html" class="link-view-all">View full inventory →</a>
+                    </div>
+                    <table class="fleet-table">
+                        <thead>
+                            <tr>
+                                <th>VEHICLE</th>
+                                <th>DRIVER</th>
+                                <th>STATUS</th>
+                                <th>LAST SERVICE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ford Focus (SB 19 XAM)</td>
+                                <td>Dan Adrian</td>
+                                <td class="text-green">ACTIVE</td>
+                                <td>MAY 12, 2026</td>
+                            </tr>
+                            <tr>
+                                <td>Dacia Logan (SB 81 NQL)</td>
+                                <td>Enache Vlad</td>
+                                <td class="text-red">IN SERVICE</td>
+                                <td>TODAY (routine)</td>
+                            </tr>
+                            <tr>
+                                <td>Mazda CX (CJ 21 MSL)</td>
+                                <td>Unassigned</td>
+                                <td class="text-yellow">AVAILABLE</td>
+                                <td>MAY 03, 2026</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="grid-right">
+
+                <div class="panel">
+                    <h2>Service Schedule</h2>
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <span class="dot dot-purple"></span>
+                            <div>
+                                <p class="date-task">June 06 - Oil change</p>
+                                <p class="car-details">SB 07 DKY | YONI</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="dot dot-yellow"></span>
+                            <div>
+                                <p class="date-task">June 08 - Safety inspection</p>
+                                <p class="car-details">CJ 92 CBL | Autoservice Sibiu</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="dot dot-yellow"></span>
+                            <div>
+                                <p class="date-task">June 11 - ITP</p>
+                                <p class="car-details">SB 23 ALX | Autoservice Sibiu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline-purple" onclick="window.location.href='calendar.html'">View full
+                        calendar</button>
+                </div>
+
+                <div class="panel">
+                    <h3 class="costs-title">Maintenance Costs (May)</h3>
+                    <p class="costs-amount">4,200 RON</p>
+                    <p class="costs-trend">↑ 12% vs last month</p>
+
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <p class="progress-text">Budget Used: 70%</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <script>
+        const profileTrigger = document.getElementById('profileTrigger');
+        const profileMenu = document.getElementById('profileMenu');
+
+        profileTrigger.addEventListener('click', function (event) {
+            profileMenu.classList.toggle('show');
+            event.stopPropagation();
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!profileMenu.contains(event.target) && !profileTrigger.contains(event.target)) {
+                profileMenu.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>

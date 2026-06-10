@@ -1,25 +1,38 @@
 <?php
-ession_start();
-include'conexiune.php';
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    $email=$_POST['email'];
-    $password=MD5($_POST['password']);
+session_start();
+include 'conexiune.php';
 
-    $query="SELECT*FROM users WHERE email='$email' AND password='$password'";
-    $result=myspli_query($conn,$query);
-    $user=mysqli_fetch_assoc($result);
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-    if($user){
-        $_SESSION['user_id']=$user['id'];
-        $_SESSION['username']=$user['username'];
-        $_SESSION['role']=$user['role'];
-        header('Location: .php');
-        exit();
-    }else{
-        $error="Invalid email or password!";
+    $query = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($conn, $query);
+
+    if(mysqli_num_rows($result) > 0)
+    {
+        $user = mysqli_fetch_assoc($result);
+
+        if(password_verify($password, $user['password']))
+        {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+
+            if($user['role'] == 'manager')
+            {
+                header("Location: dashboard_manager.php");
+            }
+            else
+            {
+                header("Location: cars-u.php");
+            }
+
+            exit();
+        }
     }
+
+    echo "Email sau parola incorecta!";
 }
-?>
-<?php
-echo "Serverul functioneaza!";
 ?>

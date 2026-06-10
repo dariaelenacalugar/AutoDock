@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Autodock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="manager.css">
+</head>
+
+<body>
+
+    <nav class="dash-navbar">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Autodock Logo" class="dash-logo">
+        </a>
+        <ul class="dash-nav-links">
+            <li><a href="cars-u.html" class="active">Cars</a></li>
+            <li><a href="documents-u.html">Documents</a></li>
+            <li><a href="tires-u.html">Tires</a></li>
+        </ul>
+
+        <div class="profile-dropdown-container">
+            <div class="profile-trigger" id="profileTrigger">
+                <div class="profile-avatar">MA</div>
+                <div class="profile-info">
+                    <span class="profile-name">Mircea Avram</span>
+                    <span class="profile-role">User</span>
+                </div>
+                <span class="material-symbols-outlined arrow-icon">expand_more</span>
+            </div>
+
+           <div class="profile-menu" id="profileMenu">
+                <div class="profile-menu-header">
+                    <strong>Mircea Avram</strong>
+                    <span>mircea@autodock.ro</span>
+                </div>
+                
+                <hr class="dropdown-divider">
+                
+                <a href="#" class="profile-menu-item">
+                    <span class="material-symbols-outlined">account_circle</span> My Profile
+                </a>
+                <a href="#" class="profile-menu-item">
+                    <span class="material-symbols-outlined">settings</span> Account Settings
+                </a>
+                
+                <hr class="dropdown-divider">
+                
+                <a href="index.html" class="profile-menu-item sign-out">
+                    <span class="material-symbols-outlined">logout</span> Sign Out
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <header class="page-header" style="margin-bottom: 20px;">
+            <h1 class="docs-title">Welcome back, Mircea!</h1>
+        </header>
+
+        <section class="user-dashboard-grid">
+
+            <div class="user-panel">
+                <h2>Current Fleet Status</h2>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th class="align-left">VEHICLE</th>
+                            <th>DRIVER</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-left">Ford Focus (SB 19 XAM)</td>
+                            <td>Dan Adrian</td>
+                            <td class="text-green">ACTIVE</td>
+                        </tr>
+                        <tr>
+                            <td class="align-left">Dacia Logan (SB 81 NQL)</td>
+                            <td>Enache Vlad</td>
+                            <td class="text-red">IN SERVICE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="user-panel">
+                <h2>Document Expiration</h2>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th class="align-left">VEHICLE</th>
+                            <th>RCA Status</th>
+                            <th>ITP Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-left">Ford Focus (SB 19 XAM)</td>
+                            <td class="text-red">Expired</td>
+                            <td>Valid</td>
+                        </tr>
+                        <tr>
+                            <td class="align-left">Dacia Logan (SB 81 NQL)</td>
+                            <td>Valid</td>
+                            <td class="text-yellow">Expires soon</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="user-panel">
+                <h2>Tire Setup</h2>
+                <table class="user-table">
+                    <thead>
+                        <tr>
+                            <th class="align-left">VEHICLE</th>
+                            <th>Type</th>
+                            <th>Condition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="align-left">Ford Focus (SB 19 XAM)</td>
+                            <td>Summer</td>
+                            <td class="text-green">Good</td>
+                        </tr>
+                        <tr>
+                            <td class="align-left">Dacia Logan (SB 81 NQL)</td>
+                            <td>Summer</td>
+                            <td class="text-yellow">Needs check</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="support-panel">
+                <div class="support-header">
+                    <span class="material-symbols-outlined support-icon">help</span>
+                    <h2>Support & Issues</h2>
+                </div>
+                <p class="support-text">For service appointments or date changes, please contact the Fleet Manager.</p>
+                <p class="support-email">Email: <strong>management@autodock.ro</strong></p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        
+        const profileTrigger = document.getElementById('profileTrigger');
+        const profileMenu = document.getElementById('profileMenu');
+
+        if (profileTrigger && profileMenu) {
+            profileTrigger.addEventListener('click', function (event) {
+                profileMenu.classList.toggle('show');
+                event.stopPropagation();
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!profileMenu.contains(event.target) && !profileTrigger.contains(event.target)) {
+                    profileMenu.classList.remove('show');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

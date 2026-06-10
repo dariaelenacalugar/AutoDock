@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autodock - Fleet Management</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Autodock Logo" class="nav-logo">
+        </a>
+        
+        <div class="nav-buttons">
+            <a href="welcome.html" class="btn-nav-login">Log in</a>
+            <a href="create-acc-manager.php" class="btn-nav-register">Register</a>
+        </div>
+    </header>
+    <section class="hero-section">
+        <h1>Manage your fleet with<br>
+            <span class="purple-text">intelligence</span> and 
+            <span class="purple-text">efficiency</span>
+        </h1>
+        
+        <p class="subtitle">
+            Autodock is the modern solution for fleet managers. Track company<br>
+            vehicles, documents, maintenance, and drivers from one single platform.
+        </p>
+        
+        <div class="hero-buttons">
+            <a href="welcome.html" class="btn-outline">Log in</a>
+            <a href="create-acc-manager.php" class="btn-outline">Register</a>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <h2>500+</h2>
+                <p>Fleets Managed</p>
+            </div>
+            <div class="stat-box">
+                <h2>9k+</h2>
+                <p>Registered Vehicles</p>
+            </div>
+            <div class="stat-box">
+                <h2>98%</h2>
+                <p>Customer Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="roles-section">
+        <div class="roles-container">
+            <h2>For anyone in the<br>automotive industry</h2>
+            
+            <div class="subtitle-with-lines">
+                <span>No matter your role, Autodock adapts to your needs.</span>
+            </div>
+
+            <div class="roles-grid">
+                
+                <div class="role-card">
+                    <h3>Fleet Managers</h3>
+                    <p>Manage all company vehicles, documents, and drivers from a single dashboard.</p>
+                </div>
+
+                <div class="role-card">
+                    <h3>Users</h3>
+                    <p>View assigned vehicles, service appointments, and related documents in real time.</p>
+                </div>
+
+                <div class="role-card">
+                    <h3>Transport Companies</h3>
+                    <p>Keep large fleets organized with automatic expiration alerts and detailed reports.</p>
+                </div>
+
+                <div class="role-card">
+                    <h3>Auto Services</h3>
+                    <p>Coordinate service appointments and track maintenance history for every vehicle.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features-container">
+            <h2>Why choose Autodock?</h2>
+            <p class="section-subtitle">Everything you need for a well-organized fleet</p>
+
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <h3>Real-Time<br>Dashboard</h3>
+                    <p>Live statistics on fleet status, active alerts, and vehicle issues, all at a glance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Document<br>Alerts</h3>
+                    <p>Automatic notifications for expiring insurance, technical inspections, and road tolls, well in advance.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Integrated Service<br>Calendar</h3>
+                    <p>Schedule and track maintenance visits directly within the platform, complete with automatic reminders.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Driver<br>Management</h3>
+                    <p>Assign drivers to vehicles and easily track who is using each car in the fleet.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Centralized<br>Documents</h3>
+                    <p>All insurance policies, tolls, and technical documents securely stored and accessible in one place.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Available Anytime,<br>Anywhere</h3>
+                    <p>Access the platform from any device, whenever you need it, with no extra installation required.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="savings-section">
+        <div class="savings-container">
+
+            <div class="savings-content">
+                <div class="savings-text">
+                    <h2>Save time with<br><span class="purple-text">every</span> vehicle added</h2>
+                    <p class="savings-desc">The larger your fleet, the more time Autodock saves you compared to manual document and service management.</p>
+
+                    <ul class="savings-list">
+                        <li>
+                            <span class="list-title">• Automated RCA, ITP, and Vignette Alerts</span>
+                            <span class="list-text">- Zero manual monitoring required</span>
+                        </li>
+                        <li>
+                            <span class="list-title">• Centralized Documentation</span>
+                            <span class="list-text">- Stop wasting time searching through physical folders</span>
+                        </li>
+                        <li>
+                            <span class="list-title">• Integrated Service Calendar</span>
+                            <span class="list-text">- Schedule maintenance in just a few seconds.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="savings-image">
+                    <img src="images/chart.png" alt="Time savings chart">
+                </div>
+            </div>
+
+            <div class="register-bottom">
+                <a href="create-acc-manager.php" class="btn-outline">Register now</a>
+                <a href="create-acc-user.php" class="btn-outline">Register now</a>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        document.getElementById('butonSignIn').addEventListener('click', function(event) {
+    event.preventDefault(); 
+
+    
+    let isUserSelected = document.getElementById('tabUser').classList.contains('active');
+
+    if (isUserSelected) {
+        window.location.href = 'cars-u.html'; 
+    } else {
+        window.location.href = 'dashboard-manager.html'; 
+    }
+});
+    </script>
+</body>
+</html>

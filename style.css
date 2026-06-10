@@ -1,18 +1,467 @@
-body{
-    background-color:white; 
+html {
+    overflow-y: scroll;
 }
 
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
 
+    .left-panel,
+    .right-panel {
+        flex: none;
+        width: 100%;
+    }
 
-nav{
-    background-color: #9C6D9D;
-    
-    padding-bottom: 15px; 
-    margin-bottom: 30px; 
-    width: 100%;
+    .left-panel {
+        padding: 50px 8%;
+    }
+
+    .right-panel {
+        padding: 60px 8%;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lao Muang Khong', sans-serif;
+}
+
+body {
     display: flex;
-    justify-content: flex-start;
-    border-radius: 0;
-    padding:10px 0;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
 }
 
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+}
+
+.left-panel {
+    flex: 0 0 30%;
+    background-color: #9C6D9D;
+    padding: 120px 8% 40px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.logo {
+    margin-bottom: 25px;
+    margin-top: -50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    max-width: 400px; 
+    height: auto;
+}
+
+.tagline {
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    margin-bottom: 40px;
+    margin-left: 50px;
+    line-height: 100%;
+    font-weight: 400;
+    vertical-align: middle;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background-color: #F2F2F7;
+    margin-bottom: 45px;
+    width: 100%;
+    opacity: 80%;
+}
+
+.features {
+    list-style: none;
+    margin-left: 30px;
+}
+
+.features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+
+.features .material-symbols-outlined {
+    font-size: 35px;
+    margin-right: 25px;
+    width: 35px;
+    text-align: center;
+    color: #ffffff;
+    
+}
+
+.right-panel {
+    flex: 1;
+    padding: 120px 8% 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1 {
+    width: 596;
+    height: 132;
+    top: 105px;
+    left: 706px;
+    opacity: 1;
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 128px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #9C6D9D;
+
+}
+
+.subtitle {
+    color: #444;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+.role-selector {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.role-btn {
+    width: 136px;
+    height: 94px;
+    border: 1px solid #DEDEDE;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: center 20px;
+    background-size: 32px;
+}
+
+.role-btn span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #9D9B9D;
+    transition: color 0.3s ease;
+}
+
+/* Butonul de Manager (Imaginea normală) */
+#btn-manager {
+    background-image: url('images/manager-default.svg');
+}
+
+/* Butonul de User (Imaginea normală) */
+#btn-user {
+    background-image: url('images/user-default.svg');
+}
+
+/* --- EFECTELE DE HOVER (Când pui mouse-ul) --- */
+
+/* 1. Face tot fundalul butonului mov și conturul mov */
+.role-btn:hover {
+    background-color: #9C6D9D;
+    border-color: #9C6D9D;
+}
+
+/* 2. Face textul din interior alb */
+.role-btn:hover span {
+    color: #ffffff;
+}
+
+/* 3. Schimbă iconițele cu cele albe */
+#btn-manager:hover {
+    background-image: url('images/manager-hover.svg');
+}
+
+#btn-user:hover {
+    background-image: url('images/user-hover.svg');
+}
+
+
+.login-form {
+    width: 100%;
+    max-width: 420px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #8c678f;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #9C6D9D;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.remember-me input {
+    cursor: pointer;
+    width: 63;
+    height: 58;
+    top: 20px;
+    left: 20px;
+    opacity: 1;
+    border-radius: 12px;
+    border-width: 4px;
+    accent-color: #9C6D9D;
+}
+
+.forgot-pwd {
+    color: #9C6D9D;
+    text-decoration: none;
+}
+
+.forgot-pwd:hover {
+    text-decoration: underline;
+}
+
+.sign-in-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #a0a0a0;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-in-btn:hover {
+    background-color: #9C6D9D;
+    border-color: #9C6D9D;
+    color: #ffffff;
+}
+
+.create-acc-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    font-size: 22px;
+    color: #9C6D9D;
+    background-color: #fff;
+    border: 2px solid #9C6D9D;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-acc-btn:hover {
+    background-color: #9C6D9D;
+    border-color: #9C6D9D;
+    color: #ffffff;
+}
+
+/* --- STAREA DE PAGINĂ ACTIVĂ (Buton selectat) --- */
+
+/* Forțăm butonul activ să fie mov */
+.role-btn.active {
+    background-color: #9C6D9D;
+    border-color: #9C6D9D;
+}
+
+/* Forțăm textul din butonul activ să fie alb */
+.role-btn.active span {
+    color: #ffffff;
+}
+
+/* Forțăm iconița de manager să fie cea albă pe pagina de manager */
+#btn-manager.active {
+    background-image: url('images/manager-hover.svg');
+    /* adresa corectă din folderul images */
+}
+
+/* Forțăm iconița de user să fie cea albă dacă suntem pe pagina de user */
+#btn-user.active {
+    background-image: url('images/user-hover.svg');
+}
+
+/* ================= STILURI PENTRU PAGINA DE REGISTER ================= */
+
+.register-form {
+    width: 100%;
+    max-width: 550px;
+    /* Lățimea maximă a formularului */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    /* Spațiul vertical între rânduri */
+}
+
+/* Forțează titlul să stea pe un singur rând */
+.right-panel h1 {
+    white-space: nowrap;
+    margin-top: -60px; /* <--- Aceasta este magia care trage textul în sus */
+    margin-bottom: 30px; /* <--- Lasă un spațiu curat între titlu și butoane */
+}
+
+
+/* Face elementele din rând să stea unul lângă altul */
+.form-row {
+    display: flex;
+    gap: 40px;
+    /* Spațiul orizontal între cele două input-uri */
+}
+
+/* Forțează cele două input-uri să ocupe exact jumătate din spațiu fiecare */
+.form-row .input-group {
+    flex: 1;
+    margin-bottom: 0;
+    /* Anulează marginea de jos standard ca să arate aliniat */
+}
+
+/* Zona de termeni și condiții */
+.terms-group {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.terms-group label {
+    color: #9C6D9D;
+    /* Movul specific temei tale */
+    font-size: 14px;
+    /* Opțional: ajustează mărimea dacă este nevoie */
+}
+
+/* Butonul mare de Sign Up (conform designului tău) */
+.signup-btn {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: 1px solid #9D9B9D;
+    border-radius: 6px;
+    color: #9D9B9D;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #9C6D9D;
+    color: white;
+    border-color: #9C6D9D;
+}
+
+/* Link-ul de jos "Already have an account" */
+.redirect-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #9D9B9D;
+}
+
+.redirect-link a {
+    color: #9C6D9D;
+    text-decoration: underline;
+}
+
+
+/* Banner-ul informativ pentru User */
+.info-banner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid #9C6D9D;
+    border-radius: 6px;
+    padding: 8px 12px;
+    background-color: #F4EBF5;
+    color: #9C6D9D;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Spațiul dintre cuvânt (ex: "First name") și caseta în care scrii */
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Designul efectiv al casetelor (înălțime, contur, colțuri rotunjite) */
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    height: 48px;
+    /* Le face mai înalte, exact ca în design */
+    border: 1px solid #DEDEDE;
+    /* Conturul gri deschis */
+    border-radius: 8px;
+    /* Rotunjește colțurile */
+    padding: 0 15px;
+    /* Adaugă spațiu în interior, ca textul să nu fie lipit de margine */
+    box-sizing: border-box;
+    /* Previne lățirea nedorită a casetei */
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+    /* Efect lin la click */
+}
+
+/* Când dai click într-o casetă ca să scrii, conturul se face mov */
+.input-group input:focus {
+    outline: none;
+    border-color: #9C6D9D;
+}

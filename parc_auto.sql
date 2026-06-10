@@ -8,18 +8,12 @@ CREATE DATABASE IF NOT EXISTS parc_auto
 USE parc_auto;
 CREATE TABLE drivers (
     id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    first_name          VARCHAR(60)  NOT NULL,
-    last_name           VARCHAR(60)  NOT NULL,
-    cnp                 CHAR(13)     UNIQUE,
-    birth_date          DATE,
-    phone               VARCHAR(20)  NOT NULL,
+    first_name          VARCHAR(60) NOT NULL,
+    last_name           VARCHAR(60) NOT NULL,
+    phone               VARCHAR(20) NOT NULL,
     email               VARCHAR(100),
-    license_category    VARCHAR(20)  NOT NULL DEFAULT 'B',
-    license_expiry_date DATE         NOT NULL,
-    status              ENUM('active','suspended','inactive') NOT NULL DEFAULT 'active',
-    car_id              INT UNSIGNED NULL COMMENT 'Assigned car ID',
-    notes               TEXT
-
+    license_category    VARCHAR(20) NOT NULL DEFAULT 'B',
+    car_id              INT UNSIGNED NULL COMMENT 'Assigned car ID'
 ) ENGINE=InnoDB COMMENT='Driver management';
 
 
@@ -50,17 +44,17 @@ CREATE TABLE cars (
 ) ENGINE=InnoDB COMMENT='Fleet vehicle management';
 
 CREATE TABLE documents (
-    id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    doc_type            ENUM('identity','license','other'),
-    issue_date          DATE,
-    expiry_date         DATE,
-    status              ENUM('valid','expired','pending'),
-    driver_id           INT UNSIGNED NULL,
-
-    CONSTRAINT fk_document_driver
-        FOREIGN KEY (driver_id) REFERENCES drivers(id)
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    car_id INT UNSIGNED NOT NULL,
+    doc_type VARCHAR(50) NOT NULL,
+    provider VARCHAR(100),
+    issue_date DATE,
+    expiry_date DATE,
+    file_path VARCHAR(255),
+    FOREIGN KEY (car_id)
+        REFERENCES cars(id)
         ON DELETE CASCADE
-) ENGINE=InnoDB COMMENT='Driver personal documents';
+);
 
 CREATE TABLE service_orders (
     id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -71,86 +65,40 @@ CREATE TABLE service_orders (
     status              ENUM('scheduled','in_progress','completed','canceled'),
     service_center      VARCHAR(100),
     estimated_cost      DECIMAL(10,2),
-    final_cost          DECIMAL(10,2),
 
     CONSTRAINT fk_order_car
         FOREIGN KEY(car_id) REFERENCES cars(id)
         ON DELETE CASCADE
 ) ENGINE=InnoDB COMMENT='Maintenance and repair orders';
 
-CREATE TABLE service_history (
-    id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    service_date        DATE,
-    description         TEXT,
-    cost                DECIMAL(10,2),
-    mileage             INT UNSIGNED,
-    order_id            INT UNSIGNED NULL,
 
-    CONSTRAINT fk_history_order
-        FOREIGN KEY(order_id) REFERENCES service_orders(id)
-        ON DELETE SET NULL
-) ENGINE=InnoDB COMMENT='Service intervention logs';
-
-CREATE TABLE insurances (
-    id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    insurance_type      ENUM('liability','comprehensive','both'),
-    company             VARCHAR(100),
-    issue_date          DATE,
-    expiry_date         DATE,
-    policy_number       VARCHAR(50),
-    car_id              INT UNSIGNED NULL,
-    cost                DECIMAL(10,2),
-
-    CONSTRAINT fk_insurances_car
-        FOREIGN KEY(car_id) REFERENCES cars(id)
-        ON DELETE CASCADE
-) ENGINE=InnoDB COMMENT='Insurance policies';
-
-CREATE TABLE vignettes (
-    id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    vignette_type       ENUM('7_days','30_days','90_days','annual'),
-    vignette_days       INT,
-    expiry_date         DATE,
-    country             VARCHAR(50),
-    vignette_number     VARCHAR(50),
-    car_id              INT UNSIGNED NULL,
-
-    CONSTRAINT fk_vignette_car
-        FOREIGN KEY(car_id) REFERENCES cars(id)
-        ON DELETE CASCADE
-) ENGINE=InnoDB COMMENT='Road tax management';
 
 CREATE TABLE tires (
     id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    car_id              INT UNSIGNED NOT NULL,
     brand               VARCHAR(50),
     size                VARCHAR(20),
     tire_type           ENUM('summer','winter','all-season'),
-    tire_condition      ENUM('new','used','worn') NOT NULL DEFAULT 'new',
-    purchase_date       DATE,
-    usage_mileage       INT UNSIGNED
+    condition_status    VARCHAR(50),
+    wear_level       INT UNSIGNED
+
+    CONSTRAINT fk_tire_car
+        FOREIGN KEY(car_id) REFERENCES cars(id)
+        ON DELETE CASCADE
 ) ENGINE=InnoDB COMMENT='Tire inventory';
 
-CREATE TABLE tire_installations (
-    id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    car_id              INT UNSIGNED,
-    tire_id             INT UNSIGNED,
-    install_date        DATE,
-    wheel_position      ENUM('front-left','front-right','rear-right','rear-left','spare'),
-    mileage_at_install  INT UNSIGNED,
 
-    CONSTRAINT fk_install_car
-        FOREIGN KEY(car_id) REFERENCES cars(id) ON DELETE CASCADE,
-    CONSTRAINT fk_install_tire
-        FOREIGN KEY(tire_id) REFERENCES tires(id) ON DELETE CASCADE
-) ENGINE=InnoDB COMMENT='Vehicle tire installation logs';
 CREATE TABLE users(
-    id                  INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    username            VARCHAR(100)    NOT NULL UNIQUE,
-    email               VARCHAR(100)    NOT NULL UNIQUE,
-    password            VARCHAR(255)    NOT NULL,
-    role                ENUM('manager','user') NOT NULL DEFAULT 'user',
-    created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)ENGINE=InnoDB COMMENT='System users';
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    company_name VARCHAR(150),
+    password VARCHAR(255) NOT NULL,
+    role ENUM('manager','user') NOT NULL DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 
 INSERT INTO users (username, email, password, role)

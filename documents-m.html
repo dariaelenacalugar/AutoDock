@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet Documents - Autodock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calistoga&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="manager.css">
+</head>
+
+<body>
+
+    <nav class="dash-navbar">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Autodock Logo" class="dash-logo">
+        </a>
+        <ul class="dash-nav-links">
+            <li><a href="dashboard-manager.html">Dashboard</a></li>
+            <li><a href="cars-m.html">Cars</a></li>
+            <li><a href="drivers.html">Drivers</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="documents-m.html" class="active">Documents</a></li>
+        </ul>
+
+        <div class="profile-dropdown-container">
+            <div class="profile-trigger" id="profileTrigger">
+                <div class="profile-avatar">AP</div>
+                <div class="profile-info">
+                    <span class="profile-name">Adrian Popescu</span>
+                    <span class="profile-role">Manager</span>
+                </div>
+                <span class="material-symbols-outlined arrow-icon">expand_more</span>
+            </div>
+
+            <div class="profile-menu" id="profileMenu">
+                <div class="profile-menu-header">
+                    <strong>Manager Central</strong>
+                    <span>manager@autodock.ro</span>
+                </div>
+
+                <hr class="dropdown-divider">
+
+                <a href="#" class="profile-menu-item">
+                    <span class="material-symbols-outlined">account_circle</span> My Profile
+                </a>
+                <a href="#" class="profile-menu-item">
+                    <span class="material-symbols-outlined">settings</span> Account Settings
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a href="index.html" class="profile-menu-item sign-out">
+                    <span class="material-symbols-outlined">logout</span> Sign Out
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <header class="docs-header">
+            <div>
+                <h1 class="docs-title">Fleet Documents</h1>
+                <p class="docs-subtitle">Provider & Series Management</p>
+            </div>
+            <button class="btn-add-doc" id="btnOpenDocModal">+ Add a new document</button>
+        </header>
+
+        <div class="accordion-list">
+
+            <div class="acc-header-row">
+                <div class="acc-col-vehicle">Vehicle Details</div>
+                <div class="acc-col-status">Global Status</div>
+                <div class="acc-col-docs">Total Active Docs</div>
+                <div class="acc-col-arrow"></div>
+            </div>
+
+            <div class="acc-item">
+                <div class="acc-main-row">
+                    <div class="acc-col-vehicle">
+                        <strong>Dacia Jogger (2023)</strong> <span class="plate-text">SB 42 BDP</span>
+                    </div>
+                    <div class="acc-col-status text-red">1 Document expired</div>
+                    <div class="acc-col-docs">3 Documents total</div>
+                    <div class="acc-col-arrow">
+                        <span class="material-symbols-outlined expand-icon">expand_more</span>
+                    </div>
+                </div>
+                <div class="acc-details-row">
+                    <table class="nested-table">
+                        <thead>
+                            <tr>
+                                <th>Document Type</th>
+                                <th>Provider / Issuer</th>
+                                <th>Valid Until</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RCA (Insurance)</td>
+                                <td>Groupama</td>
+                                <td>28 May 2026</td>
+                                <td class="text-red">EXPIRED</td>
+                                <td>
+                                    <span class="material-symbols-outlined action-icon">edit_square</span>
+                                    <span class="material-symbols-outlined action-icon">delete</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ITP (Technical)</td>
+                                <td>RAR Sibiu</td>
+                                <td>14 Dec 2027</td>
+                                <td class="text-green">VALID</td>
+                                <td>
+                                    <span class="material-symbols-outlined action-icon">edit_square</span>
+                                    <span class="material-symbols-outlined action-icon">delete</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Vinietă RO</td>
+                                <td>CNAIR</td>
+                                <td>30 Aug 2026</td>
+                                <td class="text-green">VALID</td>
+                                <td>
+                                    <span class="material-symbols-outlined action-icon">edit_square</span>
+                                    <span class="material-symbols-outlined action-icon">delete</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="acc-item">
+                <div class="acc-main-row">
+                    <div class="acc-col-vehicle">
+                        <strong>Volkswagen Golf (2021)</strong> <span class="plate-text">B 200 ADK</span>
+                    </div>
+                    <div class="acc-col-status text-yellow">ITP Expires Soon</div>
+                    <div class="acc-col-docs">2 Documents total</div>
+                    <div class="acc-col-arrow">
+                        <span class="material-symbols-outlined expand-icon">expand_more</span>
+                    </div>
+                </div>
+                <div class="acc-details-row">
+                    <p style="padding: 10px; color: #666;">Document details for VW Golf will appear here...</p>
+                </div>
+            </div>
+
+            <div class="acc-item">
+                <div class="acc-main-row">
+                    <div class="acc-col-vehicle">
+                        <strong>Ford Focus (2021)</strong> <span class="plate-text">SB 07 DKY</span>
+                    </div>
+                    <div class="acc-col-status text-green">All Valid</div>
+                    <div class="acc-col-docs">2 Documents total</div>
+                    <div class="acc-col-arrow">
+                        <span class="material-symbols-outlined expand-icon">expand_more</span>
+                    </div>
+                </div>
+                <div class="acc-details-row">
+                    <p style="padding: 10px; color: #666;">Document details for Ford Focus will appear here...</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <div id="addDocModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal" id="closeDocModal">&times;</span>
+
+            <h2>ADD NEW DOCUMENT</h2>
+
+            <form class="add-car-form">
+
+                <h3 class="section-title">Document Details</h3>
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Select Vehicle</label>
+                        <select>
+                            <option>SB 07 DKY - Ford Focus</option>
+                            <option>CJ 92 CBL - Renault Megane</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Expiration Date</label>
+                        <input type="date" value="2026-09-06">
+                    </div>
+                    <div class="input-group">
+                        <label>Document Type</label>
+                        <select>
+                            <option>ITP</option>
+                            <option>RCA</option>
+                            <option>Vinietă RO</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Provider / Issuer</label>
+                        <input type="text" placeholder="e.g. Groupama">
+                    </div>
+                </div>
+
+                <h3 class="section-title">Digital Copy</h3>
+                <label for="docUploadInput" class="upload-area" id="dropZone">
+                    <span class="material-symbols-outlined" id="removeFileBtn" style="display: none;"
+                        title="Remove file">delete</span>
+
+                    <input type="file" id="docUploadInput" accept=".pdf, image/png, image/jpeg" hidden>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                        stroke="#9C6D9D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                        <path d="M12 12v9"></path>
+                        <path d="m8 16 4-4 4 4"></path>
+                    </svg>
+                    <p id="uploadText">Click to upload or drag & drop PDF/Image of the document</p>
+                </label>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="btnCancelDoc">Cancel</button>
+                    <button type="submit" class="btn-submit">Save document</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        const docModal = document.getElementById("addDocModal");
+        const btnOpenDoc = document.getElementById("btnOpenDocModal");
+        const btnCloseDoc = document.getElementById("closeDocModal");
+        const btnCancelDoc = document.getElementById("btnCancelDoc");
+
+        if (btnOpenDoc) {
+            btnOpenDoc.onclick = function () {
+                docModal.style.display = "flex";
+            }
+        }
+        if (btnCloseDoc) {
+            btnCloseDoc.onclick = function () {
+                docModal.style.display = "none";
+            }
+        }
+        if (btnCancelDoc) {
+            btnCancelDoc.onclick = function () {
+                docModal.style.display = "none";
+            }
+        }
+        window.onclick = function (event) {
+            if (event.target == docModal) {
+                docModal.style.display = "none";
+            }
+        }
+
+
+        const profileTrigger = document.getElementById('profileTrigger');
+        const profileMenu = document.getElementById('profileMenu');
+
+        if (profileTrigger && profileMenu) {
+            profileTrigger.addEventListener('click', function (event) {
+                profileMenu.classList.toggle('show');
+                event.stopPropagation();
+            });
+
+            document.addEventListener('click', function (event) {
+                if (!profileMenu.contains(event.target) && !profileTrigger.contains(event.target)) {
+                    profileMenu.classList.remove('show');
+                }
+            });
+        }
+
+
+        const accMainRows = document.querySelectorAll('.acc-main-row');
+
+        accMainRows.forEach(row => {
+            row.addEventListener('click', function () {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('docUploadInput');
+        const uploadText = document.getElementById('uploadText');
+        const removeFileBtn = document.getElementById('removeFileBtn');
+
+        if (dropZone && fileInput && uploadText) {
+
+
+            function updateFileText(files) {
+                if (files && files.length > 0) {
+                    uploadText.innerHTML = `<strong>File selected:</strong> ${files[0].name}`;
+                    uploadText.style.color = '#5CB85C'; // Verde
+                    if (removeFileBtn) removeFileBtn.style.display = 'block'; // Arătăm coșul
+                } else {
+                    uploadText.innerHTML = 'Click to upload or drag & drop PDF/Image of the document';
+                    uploadText.style.color = '';
+                    if (removeFileBtn) removeFileBtn.style.display = 'none'; // Ascundem coșul
+                }
+            }
+
+
+            if (removeFileBtn) {
+                removeFileBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Oprește deschiderea ferestrei de Windows
+
+                    fileInput.value = ''; // Ștergem fișierul
+                    updateFileText(null); // Resetăm interfața
+                });
+            }
+
+            fileInput.addEventListener('change', function () {
+                updateFileText(this.files);
+            });
+
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => dropZone.classList.add('dragover'), false);
+            });
+
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropZone.addEventListener(eventName, () => dropZone.classList.remove('dragover'), false);
+            });
+
+
+            dropZone.addEventListener('drop', function (e) {
+                let dt = e.dataTransfer;
+                let files = dt.files;
+
+                fileInput.files = files;
+                updateFileText(files);
+            });
+        }
+    </script>
+</body>
+
+</html>
